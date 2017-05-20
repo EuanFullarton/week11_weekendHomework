@@ -1,8 +1,24 @@
 var app = function(){
-  var url = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC";
-  makeRequest(url, requestComplete);
-}
+  
+  search = 'funny+cat'
 
+  var url = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=dc6zaTOxFJmzC";
+  makeRequest(url, requestComplete);
+
+  var searchForInput = function(){
+    console.log("typing detected")
+    search = this.value;
+    console.log(search);
+
+    var url = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=dc6zaTOxFJmzC";
+
+    makeRequest(url, requestComplete);
+  }
+
+  var userInput = document.getElementById('search-box');
+  userInput.addEventListener("keyup", searchForInput);
+
+}
 
 
 var apiReturn = function(object){
@@ -39,7 +55,6 @@ var requestComplete = function(){
   var object = JSON.parse(jsonString);
 
   apiReturn(object.data);
-  // populateList(data.albums.items);
 }  
 
 

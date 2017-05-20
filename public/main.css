@@ -1,0 +1,14 @@
+img {
+  margin:auto;
+  height:25%;
+  width:25%;
+}
+
+li{
+  list-style: none;
+}
+
+body{
+  width: 80%;
+  margin:auto;
+}
