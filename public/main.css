@@ -3,6 +3,11 @@ img {
   height:20%;
   width:20%;
   padding:5%;
+  transition: 0.5s ease;
+}
+
+img:hover {
+  transform:scale(1.5);
 }
 
 li{
@@ -23,6 +28,6 @@ body{
   margin-left:35%;
   height:20%;
   width:30%;
-  font-size: 2em;
+  font-size: 1.75em;
   background-color: yellow;
 }
