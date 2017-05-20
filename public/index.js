@@ -5,22 +5,23 @@ var app = function(){
 
 
 
-var apiReturn = function(data){
-  console.log(data);
+var apiReturn = function(object){
+  console.log(object);
   var display = document.getElementById('gifs');
   var ul = document.querySelector("ul");
   display.appendChild(ul);
 
-  data.forEach(function(gif){
+  var objCounter = 0
+
+  object.forEach(function(gif){
     var li = document.createElement('li');
 
-    // li.innerHTML +=  
-    // album.name + "<br>" + 
-    // album.artists[0].name +
-    // "<img src=" + album.images[0].url + " />"; 
+    li.innerHTML +=  
+    "<img src=" + object[objCounter].images.downsized.url + " />"; 
 
     ul.appendChild(li);
 
+    objCounter ++;
 
   });
 }
@@ -35,17 +36,12 @@ var makeRequest = function(url, callback){
 var requestComplete = function(){
   if(this.status !== 200) return;
   var jsonString = this.responseText;
-  var data = JSON.parse(jsonString);
+  var object = JSON.parse(jsonString);
 
-  apiReturn(data);
+  apiReturn(object.data);
   // populateList(data.albums.items);
 }  
 
 
 
-
-
 window.addEventListener('load', app);
-
-
-}
