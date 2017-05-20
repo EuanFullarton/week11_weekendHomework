@@ -1,8 +1,5 @@
 var app = function(){
-  
-  search = 'funny+cat'
-
-  var url = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=dc6zaTOxFJmzC";
+  var url = "http://api.giphy.com/v1/gifs/search?q=typing&api_key=dc6zaTOxFJmzC";
   makeRequest(url, requestComplete);
 
   var searchForInput = function(){
@@ -30,9 +27,9 @@ var apiReturn = function(object){
   var objCounter = 0
 
   object.forEach(function(gif){
-    var li = document.createElement('li');
+    var li = document.getElementById('li' + objCounter.toString());
 
-    li.innerHTML +=  
+    li.innerHTML =  
     "<img src=" + object[objCounter].images.downsized.url + " />"; 
 
     ul.appendChild(li);
