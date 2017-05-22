@@ -3,9 +3,9 @@ var app = function(){
   makeRequest(url, requestComplete);
 
   var searchForInput = function(){
-    console.log("typing detected")
+    // console.log("typing detected")
     search = this.value;
-    console.log(search);
+    // console.log(search);
 
     var url = "http://api.giphy.com/v1/gifs/search?q=" + search + "&limit=6&api_key=dc6zaTOxFJmzC";
 
@@ -19,7 +19,7 @@ var app = function(){
 
 
 var apiReturn = function(object){
-  console.log(object);
+  // console.log(object);
   var display = document.getElementById('gifs');
   var ul = document.querySelector("ul");
   display.appendChild(ul);
