@@ -1,5 +1,5 @@
 var app = function(){
-  var url = "http://api.giphy.com/v1/gifs/search?q=typing&api_key=dc6zaTOxFJmzC";
+  var url = "http://api.giphy.com/v1/gifs/search?q=typing&limit=6&api_key=dc6zaTOxFJmzC";
   makeRequest(url, requestComplete);
 
   var searchForInput = function(){
@@ -7,7 +7,7 @@ var app = function(){
     search = this.value;
     console.log(search);
 
-    var url = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=dc6zaTOxFJmzC";
+    var url = "http://api.giphy.com/v1/gifs/search?q=" + search + "&limit=6&api_key=dc6zaTOxFJmzC";
 
     makeRequest(url, requestComplete);
   }
@@ -24,18 +24,13 @@ var apiReturn = function(object){
   var ul = document.querySelector("ul");
   display.appendChild(ul);
 
-  var objCounter = 0
-
-  object.forEach(function(gif){
-    var li = document.getElementById('li' + objCounter.toString());
+  object.forEach(function(gif, index){
+    var li = document.getElementById('li' + index.toString());
 
     li.innerHTML =  
-    "<img src=" + object[objCounter].images.downsized.url + " />"; 
+    "<img src=" + object[index].images.downsized.url + " />"; 
 
     ul.appendChild(li);
-
-    objCounter ++;
-
   });
 }
 
